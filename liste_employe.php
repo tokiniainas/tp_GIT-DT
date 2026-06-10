@@ -10,22 +10,61 @@ $resultat = get_employees_by_dept($no);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/font/bootstrap-icons.css">
+    <title>Liste des employés</title>
 </head>
-<body>
-    <main>
-        <table border="1">
-            <tr>
-                <th>First name</th>
-                <th>Last name</th>
-            </tr>
-            <?php foreach ($resultat as $row ) { ?>
-            <tr>
-        <td><?php echo $row['first_name']; ?></td>
-        <td><?php echo $row['last_name'] ?></td>
-        </tr>    
-        <?php }?>
-        </table>
-    </main>
+<body class="bg-light">
+
+<main class="container py-5">
+
+    <div class="d-flex align-items-center justify-content-between mb-4">
+        <div>
+            <h1 class="h4 fw-semibold mb-0">
+                <i class="bi bi-people-fill text-secondary me-2"></i>Liste des employés
+            </h1>
+            <p class="text-muted small mb-0">Annuaire du personnel</p>
+        </div>
+        <span class="badge bg-primary rounded-pill">
+            <?= count($resultat) ?> employé<?= count($resultat) > 1 ? 's' : '' ?>
+        </span>
+    </div>
+
+    <div class="card border-0 shadow-sm">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="text-uppercase text-muted small fw-semibold ps-4">
+                            <i class="bi bi-person me-1"></i>Prénom
+                        </th>
+                        <th class="text-uppercase text-muted small fw-semibold">
+                            Nom
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($resultat as $row): ?>
+                    <tr>
+                        <td class="ps-4">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="rounded-circle bg-primary bg-opacity-10 text-primary d-flex align-items-center justify-content-center fw-semibold"
+                                    style="width:36px; height:36px; font-size:13px; flex-shrink:0;">
+                                    <?= strtoupper(substr($row['first_name'], 0, 1) . substr($row['last_name'], 0, 1)) ?>
+                                </div>
+                                <?= htmlspecialchars($row['first_name']) ?>
+                            </div>
+                        </td>
+                        <td class="fw-semibold"><?= htmlspecialchars($row['last_name']) ?></td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</main>
+
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -15,23 +15,62 @@ $resultat=get_all_line($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/font/bootstrap-icons.css">
+    <title>Liste des employés</title>
 </head>
-<body>
-    <h1>Liste des employés</h1>
-    <table border="1">
-    <tr>
-        <th>Nom departement</th>
-        <th>Prenom manager</th>
-        <th>Nom manager</th>
-    </tr>
-    <?php foreach($resultat as $row) { ?>
-    <tr>
-        <td><a href="liste_employe.php?dept_no=<?= $row['dept_no'] ?>"><?php echo $row['dept_name']; ?></a></td>
-        <td><?php echo $row['first_name']; ?></td>
-        <td><?php echo $row['last_name'] ?></td>
-    </tr>
-    <?php } ?>
-    </table>
+<body class="bg-light">
+
+<div class="container py-5">
+
+    <div class="d-flex align-items-center justify-content-between mb-4">
+        <div>
+            <h1 class="h4 fw-semibold mb-0">
+                <i class="bi bi-people-fill text-secondary me-2"></i>Liste des employés
+            </h1>
+            <p class="text-muted small mb-0">Départements et responsables</p>
+        </div>
+        <span class="badge bg-primary rounded-pill">
+            <?= count($resultat) ?> département<?= count($resultat) > 1 ? 's' : '' ?>
+        </span>
+    </div>
+
+    <div class="card border-0 shadow-sm">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="text-uppercase text-muted small fw-semibold ps-4">
+                            <i class="bi bi-building me-1"></i>Département
+                        </th>
+                        <th class="text-uppercase text-muted small fw-semibold">
+                            <i class="bi bi-person me-1"></i>Prénom manager
+                        </th>
+                        <th class="text-uppercase text-muted small fw-semibold">
+                            Nom manager
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($resultat as $row): ?>
+                    <tr>
+                        <td class="ps-4">
+                            <a href="liste_employe.php?dept_no=<?= htmlspecialchars($row['dept_no']) ?>"
+                            class="text-decoration-none fw-semibold">
+                                <?= htmlspecialchars($row['dept_name']) ?>
+                            </a>
+                        </td>
+                        <td><?= htmlspecialchars($row['first_name']) ?></td>
+                        <td><?= htmlspecialchars($row['last_name']) ?></td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
