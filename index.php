@@ -27,6 +27,7 @@ $resultat=get_all_line($sql);
         <div>
             <h1 class="h4 fw-semibold mb-0">
                 <i class="bi bi-people-fill text-secondary me-2"></i>Liste des employés
+                <a href="recherche.php">RECHERCHE</a>
             </h1>
             <p class="text-muted small mb-0">Départements et responsables</p>
         </div>
@@ -49,6 +50,9 @@ $resultat=get_all_line($sql);
                         <th class="text-uppercase text-muted small fw-semibold">
                             Nom manager
                         </th>
+                        <th class="text-uppercase text-muted small fw-semibold">
+                            Nombre employé
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,6 +66,7 @@ $resultat=get_all_line($sql);
                         </td>
                         <td><?= htmlspecialchars($row['first_name']) ?></td>
                         <td><?= htmlspecialchars($row['last_name']) ?></td>
+                        <td></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>

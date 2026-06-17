@@ -52,7 +52,7 @@ $resultat = get_employees_by_dept($no);
                                     style="width:36px; height:36px; font-size:13px; flex-shrink:0;">
                                     <?= strtoupper(substr($row['first_name'], 0, 1) . substr($row['last_name'], 0, 1)) ?>
                                 </div>
-                                <?= htmlspecialchars($row['first_name']) ?>
+                                <a href="fiche.php?emp_no=<?= $row['emp_no'] ?>"><?= htmlspecialchars($row['first_name']) ?></a>
                             </div>
                         </td>
                         <td class="fw-semibold"><?= htmlspecialchars($row['last_name']) ?></td>
