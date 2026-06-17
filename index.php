@@ -1,6 +1,7 @@
 <?php
 include('include/fonction.php');
-$sql ="select dep.dept_no, dep.dept_name  , empl.first_name, empl.last_name
+$sql ="select dep.dept_no, dep.dept_name, empl.first_name, empl.last_name,
+    (select count(*) from dept_emp as de where de.dept_no = dep.dept_no and de.to_date='9999-01-01') as nb_employes
 from departments as dep
 join dept_manager as man
 on dep.dept_no = man.dept_no
@@ -66,6 +67,7 @@ $resultat=get_all_line($sql);
                         </td>
                         <td><?= htmlspecialchars($row['first_name']) ?></td>
                         <td><?= htmlspecialchars($row['last_name']) ?></td>
+                        <td><?= htmlspecialchars($row['nb_employes']) ?></td>
                         <td></td>
                     </tr>
                     <?php endforeach; ?>

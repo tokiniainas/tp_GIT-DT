@@ -25,9 +25,9 @@ $resultat = get_employees_by_dept($no);
             </h1>
             <p class="text-muted small mb-0">Annuaire du personnel</p>
         </div>
-        <span class="badge bg-primary rounded-pill">
+        <!--<span class="badge bg-primary rounded-pill">
             <?= count($resultat) ?> employé<?= count($resultat) > 1 ? 's' : '' ?>
-        </span>
+        </span> -->
     </div>
 
     <div class="card border-0 shadow-sm">
@@ -62,7 +62,7 @@ $resultat = get_employees_by_dept($no);
             </table>
         </div>
     </div>
-
+        
 </main>
 
 <script src="bootstrap/js/bootstrap.bundle.min.js"></script>

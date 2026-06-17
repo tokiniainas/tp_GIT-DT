@@ -120,7 +120,7 @@ $historique_poste = get_historique_poste($no);
             </table>
         </div>
     </div>
-
+    <a href="traitement_change.php?emp_no=<?= $resultat['emp_no'] ?>">changer de departement</a>
 </main>
 
 <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
