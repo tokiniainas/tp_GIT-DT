@@ -100,7 +100,7 @@ ETU 005023 ETU004956
 
 
 - fiche.php 
-    - affichage (en cours ) ETU 004956
+    - affichage (ok ) ETU 004956
         - bouton devenir manager(ok)
         - nom du manager en cours 
         - gestion d'erreur 
@@ -108,7 +108,7 @@ ETU 005023 ETU004956
         - lien formulaire 
         - gestion sql 
 
-- dev-man.php (en cours ) ETU 004956
+- dev-man.php (ok ) ETU 004956
     - affichage
         - formulaire date debut
         - manager en cours

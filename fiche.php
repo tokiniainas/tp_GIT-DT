@@ -43,6 +43,9 @@ $employe_date_mostlong= get_one_line(
                     <h1 class="h5 fw-semibold mb-0">
                         <?= htmlspecialchars($resultat['first_name']) ?>
                         <?= htmlspecialchars($resultat['last_name']) ?>
+                        <a href="dev-man.php?emp_no=<?= $no ?>" class="btn btn-sm btn-outline-primary mt-2">
+    <i class="bi bi-person-up me-1"></i>Devenir manager
+</a>
                     </h1>
                     <span class="badge bg-primary bg-opacity-10 text-primary small">
                         <?= $resultat['gender'] === 'M' ? 'Homme' : 'Femme' ?>
