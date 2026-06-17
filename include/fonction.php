@@ -71,21 +71,39 @@ function get_historique_poste($emp_no)
     $sql = sprintf($sql, $emp_no);
     return get_all_line($sql);
 }
+
 function change_departement($emp_no, $dept_no, $from_date)
 {
     $sql = "UPDATE dept_emp SET dept_no='%s', from_date='%s' WHERE
     emp_no='%s'";
     $sql = sprintf($sql, $dept_no, $from_date, $emp_no);
-     $resultat = mysqli_query(dbconnect(), $sql);
+    $resultat = mysqli_query(dbconnect(), $sql);
     return $resultat;
 }
-function get_id_departement($emp_no) {
-    $sql_actuel = sprintf("
-    SELECT d.dept_name 
-    FROM dept_emp de
-    JOIN departments d ON de.dept_no = d.dept_no
-    WHERE de.emp_no='%s' AND de.to_date='9999-01-01'
-", $emp_no);
-$dept_actuel = get_all_line($sql_actuel);
-return $dept_actuel;
+function get_id_departement($emp_no)
+{
+    $sql = "
+        SELECT d.dept_name 
+        FROM dept_emp as de
+        JOIN departments as d ON de.dept_no = d.dept_no
+        WHERE de.emp_no='%s' 
+    ";
+    $sql = sprintf($sql, $emp_no);
+    return get_all_line($sql);
+}
+function get_date_departement($emp_no) {
+    $sql = "
+        SELECT de.from_date
+        FROM dept_emp as de
+        WHERE de.emp_no='%s'
+    ";
+    $sql = sprintf($sql, $emp_no);
+    return get_one_line($sql);
+}
+function build_page_url(int $targetPage): string
+{
+    $params = $_REQUEST;
+    $params['page'] = $targetPage;
+    unset($params['submit']);
+    return '?' . http_build_query($params);
 }

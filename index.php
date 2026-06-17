@@ -21,14 +21,18 @@ $resultat=get_all_line($sql);
     <title>Liste des employés</title>
 </head>
 <body class="bg-light">
-
-<div class="container py-5">
-
-    <div class="d-flex align-items-center justify-content-between mb-4">
-        <div>
-            <h1 class="h4 fw-semibold mb-0">
+    <div class="container py-5">
+        
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <div>
+                <h1 class="h4 fw-semibold mb-0">
                 <i class="bi bi-people-fill text-secondary me-2"></i>Liste des employés
+                <br>
                 <a href="recherche.php">RECHERCHE</a>
+            </h1>
+            <h1 class="h4 fw-semibold mb-0">
+
+                <a  href="nb-employes.php">Nombre d'employés</a>
             </h1>
             <p class="text-muted small mb-0">Départements et responsables</p>
         </div>

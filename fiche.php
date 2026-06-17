@@ -16,6 +16,7 @@ $historique_poste = get_historique_poste($no);
 </head>
 <body class="bg-light">
 
+
 <main class="container py-5">
 
     <a href="javascript:history.back()" class="btn btn-outline-secondary btn-sm mb-4">
