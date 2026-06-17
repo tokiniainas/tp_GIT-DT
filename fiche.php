@@ -15,6 +15,7 @@ $historique_poste = get_historique_poste($no);
     <title>Fiche employé</title>
 </head>
 <body class="bg-light">
+    <?php include 'include/header.php'; ?>
 
 <main class="container py-5">
 

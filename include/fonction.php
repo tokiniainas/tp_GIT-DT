@@ -65,5 +65,10 @@ function get_historique_poste($emp_no) {
     return get_all_line($sql);
 }
 
-
-
+function build_page_url(int $targetPage): string
+{
+    $params = $_REQUEST;
+    $params['page'] = $targetPage;
+    unset($params['submit']); 
+    return '?' . http_build_query($params);
+}
