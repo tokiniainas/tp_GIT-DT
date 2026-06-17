@@ -3,7 +3,10 @@ include('include/fonction.php');
 $no = $_GET['dept_no'];
 
 $resultat = get_employees_by_dept($no);
-
+$emp = get_one_line("SELECT title, from_date, to_date, DATEDIFF(to_date, from_date) AS duree_jours
+FROM titles
+ORDER BY duree_jours DESC
+LIMIT 1;");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -18,6 +21,25 @@ $resultat = get_employees_by_dept($no);
 
 
 <main class="container py-5">
+    <?php if ($emp) { ?>
+<div class="card border-0 shadow-sm mb-4">
+    <div class="card-body d-flex align-items-center justify-content-between">
+        <div>
+            <p class="text-uppercase text-muted small fw-semibold mb-1">
+                <i class="bi bi-trophy me-1"></i>Poste occupé le plus longtemps
+            </p>
+            <h5 class="fw-semibold mb-0"><?= $emp['title'] ?></h5>
+            <p class="text-muted small mb-0">
+                Du <?= date('d/m/Y', strtotime($emp['from_date'])) ?>
+                au <?= date('d/m/Y', strtotime($emp['to_date'])) ?>
+            </p>
+        </div>
+        <span class="badge bg-success rounded-pill fs-6">
+            <?= round($emp['duree_jours'] / 365, 1) ?> ans
+        </span>
+    </div>
+</div>
+<?php } ?>
 
     <div class="d-flex align-items-center justify-content-between mb-4">
         <div>
