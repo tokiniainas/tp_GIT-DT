@@ -19,7 +19,7 @@
 
     <body>
         <form action="result-search.php" method="post">
-            <input type="text" name="dept_name" placeholder="departement">
+            <input type="text" name="dept_name" placeholder="departement" value="Dev" >
             <input type="text" name="employee_name" placeholder="nom employé">
 
             <select name="age_min">
