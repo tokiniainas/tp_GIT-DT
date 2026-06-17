@@ -5,7 +5,7 @@ $resultat = get_fiche_employees($no);
 $historique = get_historique_employees($no);
 $historique_poste = get_historique_poste($no);
 $employe_date_mostlong= get_one_line(
-    "SELECT
+    "SELECT *
     from titles as tit 
     where tit.from_date
     "
@@ -121,7 +121,6 @@ $employe_date_mostlong= get_one_line(
                         </td>
                         <td class="text-muted small"><?= htmlspecialchars($ligne['tit_from']) ?></td>
                         <td class="text-muted small"><?= htmlspecialchars($ligne['tit_to']) ?></td>
-                        <td><a href="dev-man.php">devenir manager</a></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>

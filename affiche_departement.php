@@ -3,7 +3,7 @@ include("include/fonction.php");
 $emp_no = $_GET['emp_no'];
 $dept_no   = $_GET['dept_no'];
 $from_date=$_GET['from_date'];
-$resultat = change_departement($emp_no, $dept_no, $from_date);
+//  $resultat = change_departement($emp_no, $dept_no, $from_date);
     $get_date=get_date_departement($emp_no);
 $erreur = false;
 
