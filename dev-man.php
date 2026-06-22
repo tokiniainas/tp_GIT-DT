@@ -36,14 +36,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['from_date']) && $dep
 
     $from_date = $_POST['from_date'];
 
-    // Clôture l'ancien manager à la date de début du nouveau
+
     mysqli_query(dbconnect(), "
         UPDATE dept_manager
         SET to_date = '$from_date'
         WHERE dept_no = '$dept_no' AND to_date = '9999-01-01'
     ");
 
-    // Insère le nouvel employé comme manager actuel
+
     mysqli_query(dbconnect(), "
         INSERT INTO dept_manager (emp_no, dept_no, from_date, to_date)
         VALUES ($emp_no, '$dept_no', '$from_date', '9999-01-01')
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['from_date']) && $dep
 
     $message = 'success';
 
-    // Recharge le manager actuel (qui est maintenant le nouvel employé)
+
     $ancien_manager = get_one_line("
         SELECT e.first_name, e.last_name, dm.from_date
         FROM dept_manager AS dm
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['from_date']) && $dep
     <title>Devenir manager</title>
 </head>
 <body class="bg-light">
-    <?php include 'include/header.php'; ?>
+
 
 <main class="container py-5">
 

@@ -14,7 +14,7 @@ $resultat=get_all_line($sql);
 
     $get_id=get_one_line($sql);
     $get_date=get_date_departement($emp_no);
-
+    
 
 ?>
 <!DOCTYPE html>
